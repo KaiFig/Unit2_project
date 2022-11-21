@@ -44,7 +44,7 @@ The
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
 | 1       | Write the Problem context                        | 10min         | Nov 22                 | A         |
-
+| 2       | Write the Problem defition                        | 20min         | Nov 21                 | A         |
 ## Test Plan
 
 # Criteria C: Development
