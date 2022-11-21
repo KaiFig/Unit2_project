@@ -1,6 +1,4 @@
-# Unit2_project
-
-
+![Weather_GIF](https://github.com/KaiFig/Unit2_project/blob/main/cold-weather.gif)
 # Unit 2: A Distributed Weather Station for ISAK
 
 ## Criteria A: Planning
