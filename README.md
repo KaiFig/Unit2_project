@@ -50,10 +50,12 @@ The
 |5        | Create lists for each sensor that is connected to our raspberry pi | We are able to see all the readings for humidity and temperature and we are able to start finding the mean, standard deviation, min, max etc so that we are able to fulfill our success criteria number 3  | 20 min | Nov 29 | C   |
 |6        | Create CSV files for our data | All of our data is in our CSV file so that when we learn how to upload data to the remote server, we are able to to send all the data right away  | 15 min  | Nov 29 | C  |
 |7         | Research crontab | We are able to time our program so that runs every 5 minutes for 48 hours and then stop automatically   | 15 min  | Nov 29  | A  |
+|8         | Add time to our CSV data | We are able to accurately see when our program runs and at what time it runs | 10 min | Nov 30 | C  |
 ## Test Plan
 | Tests | Input                                                         | Expected output
 |-------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------
 |Record the data from 4 sensor and upload it to the csv file |Data from the DHT11 senosr  | The data from the DHT11 sensor is uploaded onto the CSV file 
+|Run the code with crontab set to run every minute| Data from the DHT11 sensors  | The code runs every minute and it is uploaded to the CSV file 
 
 
 # Criteria C: Development
