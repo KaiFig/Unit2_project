@@ -56,6 +56,41 @@ The
 
 # Criteria C: Development
 
+## Minimum viable product 
+
+We created our minimum viable product that we would be able to show to our client (Mr. Sakaguchi) to get feedback from him and test our code. We used the code below to test our sesnors for 48 hours and send all the data that we gatehered into a CSV file. Alomg with the crontab code on terminal, we were able to run the code for every 5 minutes. 
+```.py
+import Adafruit_DHT
+import time
+import numpy as np
+
+DHT_SENSOR = Adafruit_DHT.DHT11
+pins =[4, 17, 18, 23]
+i = 0
+data = []
+for pin in pins:
+    humidity = None
+    temperature = None
+    while humidity is None or temperature is None:
+        humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, pin)
+
+    data.append(humidity)
+    data.append(temperature)
+
+datastr = ""
+for i in data:
+    datastr += str(i) + ","
+
+print(datastr)
+
+data_time = datastr + (time.strftime("%Y-%m-%d %H:%M:%S"))
+
+with open('humidity_data.csv', 'a') as f:
+    f.write(data_time+"\n")
+
+print("Done")
+```
+
 ## List of techniques used
 
 ## Development
