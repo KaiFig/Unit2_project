@@ -47,12 +47,13 @@ The
 |6        | Create CSV files for our data | All of our data is in our CSV file so that when we learn how to upload data to the remote server, we are able to to send all the data right away  | 15 min  | Nov 29 | C  |
 |7         | Research crontab | We are able to time our program so that runs every 5 minutes for 48 hours and then stop automatically   | 15 min  | Nov 29  | A  |
 |8         | Add time to our CSV data | We are able to accurately see when our program runs and at what time it runs | 10 min | Nov 30 | C  |
+|9         | Create graphs for each of our sensors | The graphs accurately show the data that we have gathered from our sensors and we're able to see when it is at an unhealthy level of humidity and temperature for Mr. Sakaguchi    | 45 minutes   | Dec 4  | C         |
 ## Test Plan
 | Tests | Input                                                         | Expected output
 |-------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------
 |Record the data from 4 sensor and upload it to the csv file |Data from the DHT11 senosr  | The data from the DHT11 sensor is uploaded onto the CSV file 
 |Run the code with crontab set to run every minute| Data from the DHT11 sensors  | The code runs every minute and it is uploaded to the CSV file 
-
+|Run the code with crontab set to run every 5 minutes for the next 48 hours     | Data from the DHT11 sensors | The data from the DHT11 sensors is uploaded into the CSV file for a total of 48 hours and we end up with around 570 pieces of data from our sensors
 
 # Criteria C: Development
 
