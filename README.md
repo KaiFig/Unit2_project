@@ -90,6 +90,8 @@ with open('humidity_data.csv', 'a') as f:
 
 print("Done")
 ```
+![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.57%20AM.png)
+
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.50%20AM.png)
 
 
