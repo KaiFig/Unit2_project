@@ -89,9 +89,11 @@ with open('humidity_data.csv', 'a') as f:
     f.write(data_time+"\n")
 
 print("Done")
-```
-![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.57%20AM.png)
 
+```
+Below is our CSV file for the first hour and a half.
+![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.57%20AM.png)
+Below is our CSV file at the end of our 48 hours. Between this and the picture above, we managed to collect a total of 577 pieces of data from the sensors that were all sent to our CSV file. 
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.50%20AM.png)
 
 
