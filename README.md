@@ -37,6 +37,7 @@ The
 
 ## Flowcharts 
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Flowchart_1_project_2.jpg)
+
 **Fig.2** shows the flowchart for the posting of the data. The humidity and data is measured inside using the raspberry PI and the four DHT11 sensors. Then it is posted to the DHT11 sensors with its corresponding sensor ID. We use many for loops to prevent bad coding practices of many lines of code so that it is all consolidated into a few lines. With this we manage to fulfill success criteria 4. 
 
 
