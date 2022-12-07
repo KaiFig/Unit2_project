@@ -48,6 +48,7 @@ The
 |7         | Research crontab | We are able to time our program so that runs every 5 minutes for 48 hours and then stop automatically   | 15 min  | Nov 29  | A  |
 |8         | Add time to our CSV data | We are able to accurately see when our program runs and at what time it runs | 10 min | Nov 30 | C  |
 |9         | Create graphs for each of our sensors | The graphs accurately show the data that we have gathered from our sensors and we're able to see when it is at an unhealthy level of humidity and temperature for Mr. Sakaguchi    | 45 minutes   | Dec 4  | C         |
+|10     | Post our readings to the remote server  | The data that we record is posted to the remote server. Then, we are able to access the data there as a backup and it is also available to everyone as part of all the data that we are collecting      | 30 min    | Dec 6     | C     |
 ## Test Plan
 | Tests | Input                                                         | Expected output
 |-------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------
