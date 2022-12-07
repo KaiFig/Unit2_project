@@ -55,7 +55,9 @@ The
 |Record the data from 4 sensor and upload it to the csv file |Data from the DHT11 senosr  | The data from the DHT11 sensor is uploaded onto the CSV file 
 |Run the code with crontab set to run every minute| Data from the DHT11 sensors  | The code runs every minute and it is uploaded to the CSV file 
 |Run the code with crontab set to run every 5 minutes for the next 48 hours     | Data from the DHT11 sensors | The data from the DHT11 sensors is uploaded into the CSV file for a total of 48 hours and we end up with around 570 pieces of data from our sensors
-
+|Post a set of readings (without crontab, just to check the posting)    | Data from the DHT11 sensor    | One set of data from the DHT11 sensor is posted to the remote server
+|Post a set of readings using crontab  | Data from the DHT11 sensor    | The data is posted for a total of 48 hours to the remote server   |
+|Graph each sensors readings, both humidity and temperature     | Data readings from the CSV file       | We are able to see 8 graphs (4 humidity and 4 temperature) of the data that we have in the CSV file   |
 # Criteria C: Development
 
 ## Minimum viable product 
