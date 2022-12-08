@@ -112,7 +112,27 @@ print("Done")
 ## List of techniques used
 ![Crontab](https://github.com/KaiFig/Unit2_project/blob/main/Crontab_ex.jpg)
 
-**Figx** Attached below is a picture of the crontab commmand we used to run the code for 48 hours. We used crontab since it enabled us to run it every 5 minutes without the fear of the code shutting down. We put the command in the terminal of the raspberry pi and it runs our posting code in the set times. 
+**Figx** Attached below is a picture of the crontab commmand we used to run the code for 48 hours. We used crontab since it enabled us to run it every 5 minutes without the fear of the code shutting down. We put the command in the terminal of the raspberry pi and it runs our posting code in the set times. We got the first part of the code from a website called crontab.guru and we got help for the command from Dr. Ruben. 
+
+```.py
+data = []
+sensor_idhum = [337,338,339,340]
+sensor_idtemp = [333,334,335,336]
+for pin in pins:
+    humidity = None
+    temperature = None
+    while humidity is None or temperature is None:
+        humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, pin)
+    data.append(humidity)
+    data.append(temperature)
+    for id in sensor_idtemp:
+        new_record = {"datetime": datetime.isoformat(datetime.now()), "sensor_id":id, "value":temperature}
+        r = requests.post('http://192.168.6.142/reading/new', json=new_record, headers=auth)
+    for id2 in sensor_idhum:
+        new_record2 = {"datetime": datetime.isoformat(datetime.now()), "sensor_id":id2, "value": humidity}
+        r2 = requests.post('http://192.168.6.142/reading/new', json=new_record2, headers=auth)
+```
+
 
 ## Development
 
