@@ -132,7 +132,7 @@ for pin in pins:
         new_record2 = {"datetime": datetime.isoformat(datetime.now()), "sensor_id":id2, "value": humidity}
         r2 = requests.post('http://192.168.6.142/reading/new', json=new_record2, headers=auth)
 ```
-
+With the above code, we used our prior knowledge and the help of Dr. Ruben and online resources to create the code to post all the data to the remote sensors. We used for loops with variables outside of the for loops so that we did not have 4 almost identical readings from the DHT 11 sensors and 8 almost identical postings to the server. 
 
 ## Development
 
