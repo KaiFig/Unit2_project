@@ -55,6 +55,8 @@ The
 |9         | Create graphs for each of our sensors | The graphs accurately show the data that we have gathered from our sensors and we're able to see when it is at an unhealthy level of humidity and temperature for Mr. Sakaguchi    | 45 minutes   | Dec 4  | C         |
 |10     | Post our readings to the remote server  | The data that we record is posted to the remote server. Then, we are able to access the data there as a backup and it is also available to everyone as part of all the data that we are collecting      | 30 min    | Dec 6     | C     |
 |11     | Make the necessary graphs, listed in Criteria  | We need to make visual representation of the data throught matplotlib. The specfic graphs we need a mean, standad deviation, minimum, maximum, and median for both remote and indoors sensors.      | 120 min    | Dec 8     | C     |
+|12     | Create a non-linear model for each of the graphs | For each graph, there is a model for them so that the customer can clearly see the trends present in the graph     | 80 min   | Dec 11     | C |
+|13     | Create a prediction for the next 12 hours of each of the graphs   | The customer can see a prediction of how the next 12 hours will be based on the data that we collected over the 48 hours  | 90 min   | Dec 11    | C |
 ## Test Plan
 | Tests | Input                                                         | Expected output
 |-------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------
@@ -132,7 +134,8 @@ for pin in pins:
         new_record2 = {"datetime": datetime.isoformat(datetime.now()), "sensor_id":id2, "value": humidity}
         r2 = requests.post('http://192.168.6.142/reading/new', json=new_record2, headers=auth)
 ```
-With the above code, we used our prior knowledge and the help of Dr. Ruben and online resources to create the code to post all the data to the remote sensors. We used for loops with variables outside of the for loops so that we did not have 4 almost identical readings from the DHT 11 sensors and 8 almost identical postings to the server. To find out the pins for the raspberry pi, we used an online resource 
+
+**Figx**  With the above code, we used our prior knowledge and the help of Dr. Ruben and online resources to create the code to post all the data to the remote sensors. We used for loops with variables outside of the for loops so that we did not have 4 almost identical readings from the DHT 11 sensors and 8 almost identical postings to the server. To find out the pins for the raspberry pi, we used an online resource to find a diagram that illustrated which pins on the raspberry pi served which function. Then we were able to find the 5v and GND pin and also know which pins our data was going through. To get the data from the DHT11 sensor we also used an online resource to fidn out how to read the sensors and then we were able to put it in the dictionary. With this piece of code we were able to fill 2 of our success criteria. We used 4 DHT 11 sensors as we are doing the HL part of the project which fulfills success criteria number 2 and by posting the data to the remote sensor we were able to fulfill sucess criteria number 5. 
 
 ## Development
 
