@@ -112,6 +112,18 @@ print("Done")
 **Figx** Below is our CSV file at the end of our 48 hours. Between this and the picture above, we managed to collect a total of 577 pieces of data from the sensors that were all sent to our CSV file. 
 
 ## List of techniques used
+- For loops
+- While statements
+- If statements
+- Functions
+- Get and post requests
+- Using the Raspberry Pi terminal
+- Importing libraries 
+- Create, read and append to CSV files
+- Plot graphs 
+
+## Development
+
 ![Crontab](https://github.com/KaiFig/Unit2_project/blob/main/Crontab_ex.jpg)
 
 **Figx** Attached below is a picture of the crontab commmand we used to run the code for 48 hours. We used crontab since it enabled us to run it every 5 minutes without the fear of the code shutting down. We put the command in the terminal of the raspberry pi and it runs our posting code in the set times. We got the first part of the code from a website called crontab.guru and we got help for the command from Dr. Ruben. 
@@ -139,7 +151,6 @@ for pin in pins:
 
 With the above code, we used our prior knowledge and the help of Dr. Ruben and online resources to create the code to post all the data to the remote sensors. We used for loops with variables outside of the for loops so that we did not have 4 almost identical readings from the DHT 11 sensors and 8 almost identical postings to the server. To find out the pins for the raspberry pi, we used an online resource to find a diagram that illustrated which pins on the raspberry pi served which function. Then we were able to find the 5v and GND pin and also know which pins our data was going through. To get the data from the DHT11 sensor we also used an online resource to fidn out how to read the sensors and then we were able to put it in the dictionary. With this piece of code we were able to fill 2 of our success criteria. We used 4 DHT 11 sensors as we are doing the HL part of the project which fulfills success criteria number 2 and by posting the data to the remote sensor we were able to fulfill sucess criteria number 5. 
 
-## Development
 
 
 # Criteria D: Functionality
