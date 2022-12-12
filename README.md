@@ -162,4 +162,4 @@ A 7 min video demonstrating the proposed solution with narration
 # Citations: 
 1. Murray, Mike. “Using the DHT11 Temperature Sensor with the Raspberry Pi.” The Geek Pub, 15 Dec. 2019, https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/. 
 2. “Raspberry Pi Gpio Pinout.” Raspberry Pi GPIO Pinout, https://pinout.xyz/. 
-
+3. Cousins, Jonathan. “The Effects of Low Humidity on Your Health and Comfort.” SensorPush, SensorPush, 5 Nov. 2020, https://www.sensorpush.com/articles/the-effects-of-low-humidity-on-your-health-and-comfort. 
