@@ -131,6 +131,51 @@ print("Done")
 **Figx** Attached below is a picture of the crontab commmand we used to run the code for 48 hours. We used crontab since it enabled us to run it every 5 minutes without the fear of the code shutting down. We put the command in the terminal of the raspberry pi and it runs our posting code in the set times. We got the first part of the code from a website called crontab.guru and we got help for the command from Dr. Ruben. 
 
 ```.py
+import requests
+new_user = {"username":"Kai+Zaven", 'password':'r2d2zaven+kai'}
+#req = requests.post('http://192.168.6.142/register', json=new_user)
+#print(req.json())
+
+req = requests.post('http://192.168.6.142/login', json=new_user)
+access_token = req.json()["access_token"]
+
+auth = {"Authorization": f"Bearer {access_token}"}
+
+
+new_sensor ={ "type": "Temperature","location": "R2-14F", "name": "sensor_kai_temp_1","unit":"C" }
+new_sensor2 ={ "type": "Temperature","location": "R2-14F", "name": "sensor_kai_temp_2","unit":"C" }
+new_sensor3 ={ "type": "Temperature","location": "R2-14F", "name": "sensor_kai_temp_3","unit":"C" }
+new_sensor4 ={ "type": "Temperature","location": "R2-14F", "name": "sensor_kai_temp_4","unit":"C" }
+new_sensor5 ={ "type": "Humidity","location": "R2-14F", "name": "sensor_kai_hum_1","unit":"C" }
+new_sensor6 ={ "type": "Humidity","location": "R2-14F", "name": "sensor_kai_hum_2","unit":"C" }
+new_sensor7 ={ "type": "Humidity","location": "R2-14F", "name": "sensor_kai_hum_3","unit":"C" }
+new_sensor8 ={ "type": "Humidity","location": "R2-14F", "name": "sensor_kai_hum_4","unit":"C" }
+
+r = requests.post('http://192.168.6.142/sensor/new', json=new_sensor, headers=auth)
+print(r.json())
+r2 = requests.post('http://192.168.6.142/sensor/new', json=new_sensor2, headers=auth)
+r3 = requests.post('http://192.168.6.142/sensor/new', json=new_sensor3, headers=auth)
+r4 = requests.post('http://192.168.6.142/sensor/new', json=new_sensor4, headers=auth)
+r5 = requests.post('http://192.168.6.142/sensor/new', json=new_sensor5, headers=auth)
+r6 = requests.post('http://192.168.6.142/sensor/new', json=new_sensor6, headers=auth)
+r7 = requests.post('http://192.168.6.142/sensor/new', json=new_sensor7, headers=auth)
+r8 = requests.post('http://192.168.6.142/sensor/new', json=new_sensor8, headers=auth)
+print(r2.json())
+print(r3.json())
+print(r4.json())
+print(r5.json())
+print(r6.json())
+print(r7.json())
+print(r8.json())
+
+```
+**Figx**  Create the username for our group, get the access token and create 8 sensors (1 for each humidity and temperature) 
+
+With the above code, we used the information that we learned in class about API endings. With this knowledge, we made a dictionary with our username and password and we used this to get our access token. This is important as without it, we would not have been able to create the new sensor addresses in the remote server. 
+
+
+
+```.py
 data = []
 sensor_idhum = [337,338,339,340]
 sensor_idtemp = [333,334,335,336]
