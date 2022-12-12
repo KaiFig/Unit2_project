@@ -173,7 +173,36 @@ print(r8.json())
 
 With the above code, we used the information that we learned in class about API endings. With this knowledge, we made a dictionary with our username and password and we used this to get our access token. This is important as without it, we would not have been able to create the new sensor addresses in the remote server. 
 
+```.py
+import requests
 
+def get_sensor(readings:list, id:int)->list:
+    T=[]
+    for r in readings:
+        if r["sensor_id"] == id:
+            T.append(r['value'])
+    return T
+
+def download(url:str="192.168.6.142/readings")->list:
+    req = requests.get(f'http://{url}')
+    data = req.json()
+    readings = data["readings"][0]
+    return readings
+
+def smoothing(data:list,size_window:int=12):
+    x = []
+    y = []
+    for i in range(0,(len(data)-1),size_window):
+        segment_mean = sum(data[i:i+size_window])/size_window
+        y.append(segment_mean)
+        x.append(i//size_window)
+    return x,y
+
+```
+
+**Figx** Library with 3 different functions
+
+To better organize our code, we decided to create a library with 3 important functions in it. We used the computational thinking skill of patern recognition to figure out that these were pieces of code that were repeated quite frequently in our data. With this imformation, we used the computational thinking skill of algorithim designing to create these 3 functions. Within these functions, we also used for loops, since we recognized the patterns and we realized that we could simplify the code. We also used the information we learned about getting data from a remote server to complete these functions. Therefore, we partially fulfilled success criteria 4 as we needed to create the sensor id's before posting the data to the remote server. 
 
 ```.py
 data = []
