@@ -57,6 +57,7 @@ Considering the budgetary constrains of the client and the hardware requirements
 |11     | Make the necessary graphs, listed in Criteria  | We need to make visual representation of the data throught matplotlib. The specfic graphs we need a mean, standad deviation, minimum, maximum, and median for both remote and indoors sensors.      | 120 min    | Dec 8     | C     |
 |12     | Create a non-linear model for each of the graphs | For each graph, there is a model for them so that the customer can clearly see the trends present in the graph     | 80 min   | Dec 11     | C |
 |13     | Create a prediction for the next 12 hours of each of the graphs   | The customer can see a prediction of how the next 12 hours will be based on the data that we collected over the 48 hours  | 90 min   | Dec 11    | C |
+|14     | Create 3 flowcharts from parts of our code    | We are able to showcase pieces of our code with our flowcharts so that the customer can clearly see how the code works. Additionally, if other developers take a look at our code, there are able to see how we did it clearly    | 75 minutes    | Dec 12 | B  |
 ## Test Plan
 | Tests | Input                                                         | Expected output
 |-------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------
@@ -66,6 +67,7 @@ Considering the budgetary constrains of the client and the hardware requirements
 |Post a set of readings (without crontab, just to check the posting)    | Data from the DHT11 sensor    | One set of data from the DHT11 sensor is posted to the remote server
 |Post a set of readings using crontab  | Data from the DHT11 sensor    | The data is posted for a total of 48 hours to the remote server   |
 |Graph each sensors readings, both humidity and temperature     | Data readings from the CSV file       | We are able to see 8 graphs (4 humidity and 4 temperature) of the data that we have in the CSV file   |
+|Create the mean, standard deviation, median, maximum and minimums for the sensors and graph it  | Data readings from the CSV file and sensor 4 and 5 (Dr. Ruben's outdoor sensors)  | We are able to clearly see these values on each graph | 
 # Criteria C: Development
 
 ## Minimum viable product 
