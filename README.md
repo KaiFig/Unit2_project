@@ -114,15 +114,15 @@ print("Done")
 **Figx** Below is our CSV file at the end of our 48 hours. Between this and the picture above, we managed to collect a total of 577 pieces of data from the sensors that were all sent to our CSV file. 
 
 ## List of techniques used
-- For loops
-- While statements
-- If statements
-- Functions
-- Get and post requests
-- Using the Raspberry Pi terminal
-- Importing libraries 
-- Create, read and append to CSV files
-- Plot graphs 
+| Software/development tools | coding structure tools | Libraries    |
+|----------------------------|------------------------|--------------|
+| Python/Pycharm             | for loops              | datetime     |
+| VNC viewer                 | API requests           | requests     |
+|                            | Functions              | csv          |
+|                            | While statements       | Adafruit_DHT |
+|                            | If statements          | matplotlib   |
+|                            |                        | numpy        |
+
 
 ## Development
 
