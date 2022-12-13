@@ -306,6 +306,10 @@ With the above code, we used our prior knowledge and the help of Dr. Ruben and o
 
 A 7 min video demonstrating the proposed solution with narration
 
+https://drive.google.com/drive/folders/1lZyh4rkl3bkXtiMBsNK37hOr76xfgZ0K
+The link above is to our google drive with the video and presentation. 
+
+
 # Citations: 
 1. Murray, Mike. “Using the DHT11 Temperature Sensor with the Raspberry Pi.” The Geek Pub, 15 Dec. 2019, https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/. 
 2. “Raspberry Pi Gpio Pinout.” Raspberry Pi GPIO Pinout, https://pinout.xyz/. 
