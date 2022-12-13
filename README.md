@@ -311,6 +311,21 @@ The link above is to our google drive with the video and presentation.
 
 
 # Citations: 
-1. Murray, Mike. “Using the DHT11 Temperature Sensor with the Raspberry Pi.” The Geek Pub, 15 Dec. 2019, https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/. 
-2. “Raspberry Pi Gpio Pinout.” Raspberry Pi GPIO Pinout, https://pinout.xyz/. 
-3. Cousins, Jonathan. “The Effects of Low Humidity on Your Health and Comfort.” SensorPush, SensorPush, 5 Nov. 2020, https://www.sensorpush.com/articles/the-effects-of-low-humidity-on-your-health-and-comfort. 
+1.“Cold Homes and Health.” Cold Homes and Health | Centre for Sustainable Energy, https://www.cse.org.uk/advice/advice-and-support/heat-and-health. Cousins, Jonathan. “The Effects of Low Humidity on Your Health and Comfort.” SensorPush, SensorPush, 5 Nov. 2020, https://www.sensorpush.com/articles/the-effects-of-low-humidity-on-your-health-and-comfort. 
+
+2. Murray, Mike. “Using the DHT11 Temperature Sensor with the Raspberry Pi.” The Geek Pub, 15 Dec. 2019, https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/. 
+
+3. “Numpy.polyfit#.” Numpy.polyfit - NumPy v1.23 Manual, https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html. 
+
+4.“Raspberry Pi Gpio Pinout.” Raspberry Pi GPIO Pinout, https://pinout.xyz/. 
+
+5. Sameer PatelSameer Patel                    91733 gold badges1616 silver badges1919 bronze badges. “How Can I Make Multiple Empty Lists in Python?” Stack Overflow, 1 Jan. 1960, https://stackoverflow.com/questions/13520876/how-can-i-make-multiple-empty-lists-in-python. 
+
+
+6. Stuart BergStuart Berg                    16.2k1111 gold badges6565 silver badges9494 bronze badges, and Slobodan IlicSlobodan Ilic                    73988 silver badges88 bronze badges. “NumPy: Function for Simultaneous Max() and Min().” Stack Overflow, 1 Oct. 1959, https://stackoverflow.com/questions/12200580/numpy-function-for-simultaneous-max-and-min. 
+
+
+7. “Sum the Digits in a String in Python.” Bobbyhadz, https://bobbyhadz.com/blog/python-sum-digits-in-string. 
+
+
+8. “Why Thinking like a Computer Builds Skills for Success.” Teach Your Kids Code, 6 Dec. 2022, https://teachyourkidscode.com/what-is-computational-thinking/#:~:text=There%20are%20four%20key%20skills%20in%20computational%20thinking.,use%20computational%20thinking%20every%20day! 
