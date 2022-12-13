@@ -1,4 +1,7 @@
 ![Weather_GIF](https://github.com/KaiFig/Unit2_project/blob/main/cold-weather.gif)
+
+**Fig.1** GIF of Olaf in the winter 
+
 # Unit 2: A Distributed Weather Station for ISAK
 
 ## Criteria A: Planning
@@ -6,7 +9,7 @@
 ## Problem definition
 Mr. Sakaguchi has been getting sick recently with a sore throat and a cough. As winter is coming, the humidity and the temperature of the house has been getting lower which has coincided with the recent illness. Therefore, Mr. Sakaguchi suspects that this is the cause of his illness, and he has asked us (Zaven and I) to investigate his hypothesis. Currently, he has a thermometer in his room, however, he doesn't check it often and he also cannot check the humidity. Even with the temperature, he doesn't know what temperature is unhealthy and what temperature is healthy. Therefore, he wants us to create a program that shows when he is most vulnerable to illness due to unhealthy levels of humidity and temperature. 
 ## Proposed Solution
-Considering the client requirements an adequate solution includes a low cost sensing device for humidity and temperature and a custom data script that process and anaysis the samples acquired. For a low cost sensing device an adequate alternative is the DHT11 sensor[^1] which is offered online for less than 5 USD and provides adequare precision and range for the client requirements (Temperature Range: 0°C to 50°C, Humidity Range: 20% to 90%). Similar devices such as the DHT22, AHT20 or the AM2301B [^2] have higher specifications, however the DHT11 uses a simple serial communication (SPI) rather than more eleborated protocols such as the I2C used by the alternatives. For the range, precision and accuracy required in this applicaiton the DHT11 provides the best compromise. Connecting the DHT11 sensor to a computer requires a device that provides wireless communication. A cheap and often used alternative for prototyping is the Raspberry Pi. It enables the developer to have wireless communication with the 
+Considering the client requirements an adequate solution includes a low cost sensing device for humidity and temperature and a custom data script that process and anaysis the samples acquired. For a low cost sensing device an adequate alternative is the DHT11 sensor[^1] which is offered online for less than 5 USD and provides adequare precision and range for the client requirements (Temperature Range: 0°C to 50°C, Humidity Range: 20% to 90%). Similar devices such as the DHT22, AHT20 or the AM2301B [^2] have higher specifications, however the DHT11 uses a simple serial communication (SPI) rather than more eleborated protocols such as the I2C used by the alternatives. For the range, precision and accuracy required in this applicaiton the DHT11 provides the best compromise. Connecting the DHT11 sensor to a computer requires a device that provides wireless communication. A cheap and often used alternative for prototyping is the Raspberry Pi. It enables the developer to have wireless communication with the sensors which is important in our case as we are able to code and get data without having to be physically connected to the computer. It is also relatively small and cheap. 
 
 Considering the budgetary constrains of the client and the hardware requirements, the software tool that I proposed for this solution is Python. Python is open source, it is mature and supported in mutiple platforms (platform-independent) including macOS, Windows, Linux and can also be used to program the Arduino microprocessor [^5][^6]. In comparison to the alternative C or C++, which share similar features, Python is a High level programming language (HLL) with high abstraction [^7]. For example, memory management is automatic in Python whereas it is responsability of the C/C++ developer to allocate and free up memory [^7], this could result in faster applications but also memory problems. In addition a HLL language will allow me and future developers extend the solution or solve issues proptly.   
 
@@ -33,21 +36,25 @@ Considering the budgetary constrains of the client and the hardware requirements
 ## System Diagram **HL**
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Raspberry%20pi%204.jpg)
 
-**Fig.1** shows the system diagram for the proposed solution (**HL**). The indoor variables will be measured using a Raspberry PI and four DHT11 sensors located inside a room. Four sensors are used to determine more precisely the physical values and include measurement uncertainty. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally and POST to the server using the API and TOKEN authentication. A laptop computer is used for remotely controlling the local Rasberry Pi using a Dekptop sharing application (VNC Viewer). (Optional) Data from the local raspberry is downloaded to the laptop for analysis and processing.
+**Fig. 2** shows the system diagram for the proposed solution (**HL**). The indoor variables will be measured using a Raspberry PI and four DHT11 sensors located inside a room. Four sensors are used to determine more precisely the physical values and include measurement uncertainty. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally and POST to the server using the API and TOKEN authentication. A laptop computer is used for remotely controlling the local Rasberry Pi using a Dekptop sharing application (VNC Viewer). (Optional) Data from the local raspberry is downloaded to the laptop for analysis and processing.
 
 ## Flowcharts 
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Flowchart_1.jpg)
 
-**Fig.2** shows the flowchart for the posting of the data. The humidity and data is measured inside using the raspberry PI and the four DHT11 sensors. Then it is posted to the DHT11 sensors with its corresponding sensor ID. We use many for loops to prevent bad coding practices of many lines of code so that it is all consolidated into a few lines. With this we manage to fulfill success criteria 4. 
+**Fig.3** shows the flowchart for the posting of the data. 
+
+The humidity and data is measured inside using the raspberry PI and the four DHT11 sensors. Then it is posted to the DHT11 sensors with its corresponding sensor ID. We use many for loops to prevent bad coding practices of many lines of code so that it is all consolidated into a few lines. With this we manage to fulfill success criteria 4. 
 
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Project_2_flowchart_2.jpg)
 
-**Fig.x** Shows the flowchart for getting the data from the remote server. We get the data from the sensors ID: 4 and 5 which are the ones that Dr. Ruben has set up in school. With these sensors, we get the data for a total of 48 hours and then we use a function to smooth the data. Using the remote sensors fulfills success criteria number 1 and we use for loops and functions in this flowchart. With the use of these flowcharts, we have shown our computational thinking skills. First of all, we show decomposition by breaking this problem down into small manageble parts. We first figured out how to get the data from the sensor, then we figured out how to do the smoothing. Additionally, we show our pattern recognition since we used for loops for parts that were repeated in the code and we also used a function since we saw that that particular action was repeated multiple times in the code. Lastly, we showed our algorithim design by making a function for the smoothing of the graphs. 
+**Fig.4** Shows the flowchart for getting the data from the remote server and then smoothing it. 
+
+We get the data from the sensors ID: 4 and 5 which are the ones that Dr. Ruben has set up in school. With these sensors, we get the data for a total of 48 hours and then we use a function to smooth the data. Using the remote sensors fulfills success criteria number 1 and we use for loops and functions in this flowchart. With the use of these flowcharts, we have shown our computational thinking skills. First of all, we show decomposition by breaking this problem down into small manageble parts. We first figured out how to get the data from the sensor, then we figured out how to do the smoothing. Additionally, we show our pattern recognition since we used for loops for parts that were repeated in the code and we also used a function since we saw that that particular action was repeated multiple times in the code. Lastly, we showed our algorithim design by making a function for the smoothing of the graphs. 
 
 
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Project_2_flowchart_3.jpg)
 
-**Fig.x** Shows the flowchart for getting the mean of the smoothed data. In this flowchart we are able find the standard deviation, median, min and max of the data. We use a for loop to find the mean of each 5 minute reading of all the sensors. 
+**Fig.5** Shows the flowchart for getting the mean of the smoothed data. In this flowchart we are able find the standard deviation, median, min and max of the data. We use a for loop to find the mean of each 5 minute reading of all the sensors. 
 
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
@@ -90,9 +97,11 @@ We stored our data in the CSV file and in the remote server
 
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.57%20AM.png)
 
-**Figx** Above is our CSV file for our data which is stored 
+**Fig.6** Above is our CSV file for our data which is stored 
 
+![](https://github.com/KaiFig/Unit2_project/blob/main/Data_on_server.jpg) 
 
+**Fig.7** Above is part of our dictionary stored on the remote server 
 
 # Criteria C: Development
 
@@ -131,15 +140,20 @@ with open('humidity_data.csv', 'a') as f:
 print("Done")
 
 ```
+
+**Fig.8** This is the code for our minimum viable product. At this stage, we were only trying to read the sensors and put the data in a CSV file.
+
+
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.57%20AM.png)
 
-**Figx** Below is our CSV file for the first hour and a half.
+**Fig.9** Below is our CSV file for the first hour and a half where we stored our data.
 
 ![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.50%20AM.png)
 
-**Figx** Below is our CSV file at the end of our 48 hours. Between this and the picture above, we managed to collect a total of 577 pieces of data from the sensors that were all sent to our CSV file. 
+**Fig.10** Below is our CSV file at the end of our 48 hours. Between this and Fig.9, we managed to collect a total of 577 pieces of data from the sensors that were all sent to our CSV file. 
 
-## List of techniques used
+
+## Existing tools 
 | Software/development tools | coding structure tools | Libraries    |
 |----------------------------|------------------------|--------------|
 | Python/Pycharm             | for loops              | datetime     |
@@ -149,6 +163,15 @@ print("Done")
 |                            | If statements          | matplotlib   |
 |                            |                        | numpy        |
 
+## List of techniques used
+| Technique |
+|-----------|
+|Post our data to the remote server using the datetime library| 
+|Get data from the remote sensor with API and the requests library  | 
+|Put the data into a CSV using for loops, while statements and the csv library |
+|Smooth all of our data using a function and for loops and using the numpy library | 
+|Plot our data (mean, median, maximum, minimum, standard deviation) using the matplotlib |
+
 
 ## Development
 
@@ -157,7 +180,7 @@ print("Done")
 
 ![Crontab](https://github.com/KaiFig/Unit2_project/blob/main/Crontab_ex.jpg)
 
-**Figx** Attached below is a picture of the crontab commmand we used to run the code for 48 hours. We used crontab since it enabled us to run it every 5 minutes without the fear of the code shutting down. We put the command in the terminal of the raspberry pi and it runs our posting code in the set times. We got the first part of the code from a website called crontab.guru and we got help for the command from Dr. Ruben. 
+**Fig.10** Attached below is a picture of the crontab commmand we used to run the code for 48 hours. We used crontab since it enabled us to run it every 5 minutes without the fear of the code shutting down. We put the command in the terminal of the raspberry pi and it runs our posting code in the set times. We got the first part of the code from a website called crontab.guru and we got help for the command from Dr. Ruben. 
 
 ### Create the sensors
 
@@ -200,7 +223,7 @@ print(r7.json())
 print(r8.json())
 
 ```
-**Figx**  Create the username for our group, get the access token and create 8 sensors (1 for each humidity and temperature) 
+**Fig.11**  Create the username for our group, get the access token and create 8 sensors (1 for each humidity and temperature) 
 
 With the above code, we used the information that we learned in class about API endings. With this knowledge, we made a dictionary with our username and password and we used this to get our access token. This is important as without it, we would not have been able to create the new sensor addresses in the remote server. 
 
@@ -235,7 +258,7 @@ def smoothing(data:list,size_window:int=12):
 
 ```
 
-**Figx** Library with 3 different functions
+**Fig.12** Library with 3 different functions
 
 To better organize our code, we decided to create a library with 3 important functions in it. We used the computational thinking skill of patern recognition to figure out that these were pieces of code that were repeated quite frequently in our data. With this imformation, we used the computational thinking skill of algorithim designing to create these 3 functions. Within these functions, we also used for loops, since we recognized the patterns and we realized that we could simplify the code. We also used the information we learned about getting data from a remote server to complete these functions. Therefore, we partially fulfilled success criteria 4 as we needed to create the sensor id's before posting the data to the remote server. 
 
@@ -260,7 +283,7 @@ for pin in pins:
         r2 = requests.post('http://192.168.6.142/reading/new', json=new_record2, headers=auth)
 ```
 
-**Figx**  Read the data from the DHT11 sensors connected to the raspberry pi and post it to the remote server 
+**Fig.13**  Read the data from the DHT11 sensors connected to the raspberry pi and post it to the remote server 
 
 With the above code, we used our prior knowledge and the help of Dr. Ruben and online resources to create the code to post all the data to the remote sensors. We used for loops with variables outside of the for loops so that we did not have 4 almost identical readings from the DHT 11 sensors and 8 almost identical postings to the server. To find out the pins for the raspberry pi, we used an online resource to find a diagram that illustrated which pins on the raspberry pi served which function. Then we were able to find the 5v and GND pin and also know which pins our data was going through. To get the data from the DHT11 sensor we also used an online resource to fidn out how to read the sensors and then we were able to put it in the dictionary. With this piece of code we were able to fill 2 of our success criteria. We used 4 DHT 11 sensors as we are doing the HL part of the project which fulfills success criteria number 2 and by posting the data to the remote sensor we were able to fulfill sucess criteria number 5. 
 
