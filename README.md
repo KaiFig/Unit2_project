@@ -73,6 +73,17 @@ Considering the budgetary constrains of the client and the hardware requirements
 |Post a set of readings using crontab  | Data from the DHT11 sensor    | The data is posted for a total of 48 hours to the remote server   |
 |Graph each sensors readings, both humidity and temperature     | Data readings from the CSV file       | We are able to see 8 graphs (4 humidity and 4 temperature) of the data that we have in the CSV file   |
 |Create the mean, standard deviation, median, maximum and minimums for the sensors and graph it  | Data readings from the CSV file and sensor 4 and 5 (Dr. Ruben's outdoor sensors)  | We are able to clearly see these values on each graph | 
+
+## How is data stored 
+
+We stored our data in the CSV file and in the remote server 
+
+![](https://github.com/KaiFig/Unit2_project/blob/main/Screenshot%202022-12-04%20at%207.40.57%20AM.png)
+
+**Figx** Above is our CSV file for our data which is stored 
+
+
+
 # Criteria C: Development
 
 ## Minimum viable product 
