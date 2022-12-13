@@ -62,6 +62,7 @@ Considering the budgetary constrains of the client and the hardware requirements
 |16     | Create a non-linear model for each of the graphs | For each graph, there is a model for them so that the customer can clearly see the trends present in the graph     | 80 min   | Dec 11     | C |
 |17     | Create a prediction for the next 12 hours of each of the graphs   | The customer can see a prediction of how the next 12 hours will be based on the data that we collected over the 48 hours  | 90 min   | Dec 11    | C |
 |18     | Create 3 flowcharts from parts of our code    | We are able to showcase pieces of our code with our flowcharts so that the customer can clearly see how the code works. Additionally, if other developers take a look at our code, there are able to see how we did it clearly    | 75 minutes    | Dec 12 | B  |
+|19     | Research different levels of healthy/unhealthy levels of humidity and temeprature     | 30 minutes  | Dec 12  |  C | 
 ## Test Plan
 | Test type     | Test types | Input                                                         | Expected output
 |-------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------
