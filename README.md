@@ -40,6 +40,14 @@ Considering the budgetary constrains of the client and the hardware requirements
 
 **Fig.2** shows the flowchart for the posting of the data. The humidity and data is measured inside using the raspberry PI and the four DHT11 sensors. Then it is posted to the DHT11 sensors with its corresponding sensor ID. We use many for loops to prevent bad coding practices of many lines of code so that it is all consolidated into a few lines. With this we manage to fulfill success criteria 4. 
 
+![](https://github.com/KaiFig/Unit2_project/blob/main/Project_2_flowchart_2.jpg)
+
+**Fig.x** Shows the flowchart for getting the data from the remote server. We get the data from the sensors ID: 4 and 5 which are the ones that Dr. Ruben has set up in school. With these sensors, we get the data for a total of 48 hours and then we use a function to smooth the data. Using the remote sensors fulfills success criteria number 1 and we use for loops and functions in this flowchart. With the use of these flowcharts, we have shown our computational thinking skills. First of all, we show decomposition by breaking this problem down into small manageble parts. We first figured out how to get the data from the sensor, then we figured out how to do the smoothing. Additionally, we show our pattern recognition since we used for loops for parts that were repeated in the code and we also used a function since we saw that that particular action was repeated multiple times in the code. Lastly, we showed our algorithim design by making a function for the smoothing of the graphs. 
+
+
+![](https://github.com/KaiFig/Unit2_project/blob/main/Project_2_flowchart_3.jpg)
+
+**Fig.x** Shows the flowchart for getting the mean of the smoothed data. In this flowchart we are able find the standard deviation, median, min and max of the data. We use a for loop to find the mean of each 5 minute reading of all the sensors. 
 
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
