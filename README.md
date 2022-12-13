@@ -295,6 +295,12 @@ for pin in pins:
 With the above code, we used our prior knowledge and the help of Dr. Ruben and online resources to create the code to post all the data to the remote sensors. We used for loops with variables outside of the for loops so that we did not have 4 almost identical readings from the DHT 11 sensors and 8 almost identical postings to the server. To find out the pins for the raspberry pi, we used an online resource to find a diagram that illustrated which pins on the raspberry pi served which function. Then we were able to find the 5v and GND pin and also know which pins our data was going through. To get the data from the DHT11 sensor we also used an online resource to fidn out how to read the sensors and then we were able to put it in the dictionary. With this piece of code we were able to fill 2 of our success criteria. We used 4 DHT 11 sensors as we are doing the HL part of the project which fulfills success criteria number 2 and by posting the data to the remote sensor we were able to fulfill sucess criteria number 5. 
 
 
+## Poster 
+
+![](https://github.com/KaiFig/Unit2_project/blob/main/White%20Simple%20Business%20Model%20Canvas%20Poster.jpg)
+
+**Fig.14** Scientific poster of our data 
+
 
 # Criteria D: Functionality
 
