@@ -16,6 +16,10 @@ Considering the budgetary constrains of the client and the hardware requirements
 
 **Design statement**
 
+We will design and make a humidity and temperature measuring system for a client who has been getting sick. The system will be about measuring the humidity and temperature of the customers room and the outside suroundings and is constructed using the software python. It will take 3 weeks to make and will be evaluated according to the criteria A,B,C and D. 
+
+
+
 [^1]: Industries, Adafruit. “DHT11 Basic Temperature-Humidity Sensor + Extras.” Adafruit Industries Blog RSS, https://www.adafruit.com/product/386. 
 [^2]: Nelson, Carter. “Modern Replacements for DHT11 and dht22 Sensors.” Adafruit Learning System, https://learn.adafruit.com/modern-replacements-for-dht11-dht22-sensors/what-are-better-alternatives.   
 [^3]:“How to Connect dht11 Sensor with Arduino Uno.” Arduino Project Hub, https://create.arduino.cc/projecthub/pibots555/how-to-connect-dht11-sensor-with-arduino-uno-f4d239.  
@@ -61,26 +65,29 @@ We get the data from the sensors ID: 4 and 5 which are the ones that Dr. Ruben h
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
 | 1       | Write the Problem context                        | Identitfy the background to a problem at ISAK that relates to our project  | 10min         | Nov 21                 | A         |
 | 2       | Write the Problem defition                        | Expand our problem context and identify a customer and their specific problem so that we know what we need to acheive with our project  |  20min         | Nov 21                 | A         |
-| 3       | Create a bill of materials | We are able to know what materials we need to fulfill this project     | 20 min    | Nov 21   | A |
-| 4       | Research how to connect the Raspberry pi to the DHT sensor | We have a clear understanding of how to connect the DHT11 sensors to the Raspberry pi to proceed with our projectly efficiently   | 20 min  |Nov 24               | A         |
-| 5       | Pick up materials and sign the scope of work    | We gather all the materials necessary to start with the project and we also get approval from Dr. Ruben via the scope of work     | 20 min    | Nov 24    | A | 
-| 6       | Make a test circuit with the Raspberry pi and small breadboard | We can start testing the DHT11 sensor to Raspberry pi connection and start doing small tests with the sensors | 20 min   | Nov 26    | B 
-|7        | Create lists for each sensor that is connected to our raspberry pi | We are able to see all the readings for humidity and temperature and we are able to start finding the mean, standard deviation, min, max etc so that we are able to fulfill our success criteria number 3  | 20 min | Nov 29 | C   |
-|8        | Create CSV files for our data | All of our data is in our CSV file so that when we learn how to upload data to the remote server, we are able to to send all the data right away  | 15 min  | Nov 29 | C  |
-|9         | Research crontab | We are able to time our program so that runs every 5 minutes for 48 hours and then stop automatically   | 15 min  | Nov 29  | A  |
-|10         | Add time to our CSV data | We are able to accurately see when our program runs and at what time it runs | 10 min | Nov 30 | C  |
-|11       | Create the Minimum Viable Product   | We show the customer our ideas and preliminary solution and we get valuable feedback and experience in how to acheive our success criteria | 40 min   | Nov 30    | C| 
-|12         | Create graphs for each of our sensors | The graphs accurately show the data that we have gathered from our sensors and we're able to see when it is at an unhealthy level of humidity and temperature for Mr. Sakaguchi    | 45 minutes   | Dec 4  | C         |
-|13       | Register the user on the remote server and get the access token     | We are able to create a secure username and password so that we are able to access the remote server, and the access token enables us to log in and post data to the server   | 20 minutes   | Dec 5 | C | 
-|14     | Post our readings to the remote server  | The data that we record is posted to the remote server. Then, we are able to access the data there as a backup and it is also available to everyone as part of all the data that we are collecting      | 30 min    | Dec 6     | C     |
-|15     | Make the necessary graphs, listed in Criteria  | We need to make visual representation of the data throught matplotlib. The specfic graphs we need a mean, standad deviation, minimum, maximum, and median for both remote and indoors sensors.      | 120 min    | Dec 8     | C     |
-|16     | Create a non-linear model for each of the graphs | For each graph, there is a model for them so that the customer can clearly see the trends present in the graph     | 80 min   | Dec 11     | C |
-|17     | Create a prediction for the next 12 hours of each of the graphs   | The customer can see a prediction of how the next 12 hours will be based on the data that we collected over the 48 hours  | 90 min   | Dec 11    | C |
-|18     | Create 3 flowcharts from parts of our code    | We are able to showcase pieces of our code with our flowcharts so that the customer can clearly see how the code works. Additionally, if other developers take a look at our code, there are able to see how we did it clearly    | 75 minutes    | Dec 12 | B  |
-|19     | Research different levels of healthy/unhealthy levels of humidity and temeprature   | We know how much is dangerous and how much is not based on the information we gather online     | 30 minutes  | Dec 12  |  C | 
-|20     | How data is stored  | Upload on github the differnt ways we are storing our data and  | 20 min   | Dec 12    | B | 
-|21     | Make test plan    | We have a test plan on github so that we are able to show what we have done | 45 min | Dec 12 | B |
-|22     | Record the video   | We can show our customer our final product and explain it well  | 20 min     | Dec 13 | D |
+|3       | Write the design statement   | We have a design statement so we are able to proceed forward with a clear goal and vision for our project |10 min | Nov 22    | A     | 
+| 4       | Create a bill of materials | We are able to know what materials we need to fulfill this project     | 20 min    | Nov 21   | A |
+| 5      | Research how to connect the Raspberry pi to the DHT sensor | We have a clear understanding of how to connect the DHT11 sensors to the Raspberry pi to proceed with our projectly efficiently   | 20 min  |Nov 24               | A         |
+| 6       | Pick up materials and sign the scope of work    | We gather all the materials necessary to start with the project and we also get approval from Dr. Ruben via the scope of work     | 20 min    | Nov 24    | A | 
+| 7       | Make a test circuit with the Raspberry pi and small breadboard | We can start testing the DHT11 sensor to Raspberry pi connection and start doing small tests with the sensors | 20 min   | Nov 26    | B 
+|8       | Create lists for each sensor that is connected to our raspberry pi | We are able to see all the readings for humidity and temperature and we are able to start finding the mean, standard deviation, min, max etc so that we are able to fulfill our success criteria number 3  | 20 min | Nov 29 | C   |
+|9        | Create CSV files for our data | All of our data is in our CSV file so that when we learn how to upload data to the remote server, we are able to to send all the data right away  | 15 min  | Nov 29 | C  |
+|10         | Research crontab | We are able to time our program so that runs every 5 minutes for 48 hours and then stop automatically   | 15 min  | Nov 29  | A  |
+|11         | Add time to our CSV data | We are able to accurately see when our program runs and at what time it runs | 10 min | Nov 30 | C  |
+|12       | Create the Minimum Viable Product   | We show the customer our ideas and preliminary solution and we get valuable feedback and experience in how to acheive our success criteria | 40 min   | Nov 30    | C| 
+|13         | Create graphs for each of our sensors | The graphs accurately show the data that we have gathered from our sensors and we're able to see when it is at an unhealthy level of humidity and temperature for Mr. Sakaguchi    | 45 minutes   | Dec 4  | C         |
+|14       | Register the user on the remote server and get the access token     | We are able to create a secure username and password so that we are able to access the remote server, and the access token enables us to log in and post data to the server   | 20 minutes   | Dec 5 | C | 
+|15     | Post our readings to the remote server  | The data that we record is posted to the remote server. Then, we are able to access the data there as a backup and it is also available to everyone as part of all the data that we are collecting      | 30 min    | Dec 6     | C     |
+|16     | Make the necessary graphs, listed in Criteria  | We need to make visual representation of the data throught matplotlib. The specfic graphs we need a mean, standad deviation, minimum, maximum, and median for both remote and indoors sensors.      | 120 min    | Dec 8     | C     |
+|17     | Create a non-linear model for each of the graphs | For each graph, there is a model for them so that the customer can clearly see the trends present in the graph     | 80 min   | Dec 11     | C |
+|18     | Create a prediction for the next 12 hours of each of the graphs   | The customer can see a prediction of how the next 12 hours will be based on the data that we collected over the 48 hours  | 90 min   | Dec 11    | C |
+|19     | Create 3 flowcharts from parts of our code    | We are able to showcase pieces of our code with our flowcharts so that the customer can clearly see how the code works. Additionally, if other developers take a look at our code, there are able to see how we did it clearly    | 75 minutes    | Dec 12 | B  |
+|20     | Research different levels of healthy/unhealthy levels of humidity and temeprature   | We know how much is dangerous and how much is not based on the information we gather online     | 30 minutes  | Dec 12  |  C | 
+|21     | How data is stored  | Upload on github the differnt ways we are storing our data and  | 20 min   | Dec 12    | B | 
+|22     | Make test plan    | We have a test plan on github so that we are able to show what we have done | 45 min | Dec 12 | B |
+|23     | Record the video   | We can show our customer our final product and explain it well  | 20 min     | Dec 13 | D |
+|24     | Final check of github | We read through the rubric and make sure that we have everything that is required on our github and we finalize it    | 30 min    | Dec 13 | D  |
+|25     | Send the email with our github link to Dr. Ruben | The email is sent to him so that he can look at our github as it will be completed   | 10 min  | Dec 13  | A  | 
 ## Test Plan
 | Software Test Type | Description | Input | Planned Output  |
 |------|-------------|----------|---------|
