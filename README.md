@@ -329,3 +329,351 @@ The link above is to our google drive with the video and presentation.
 
 
 8. “Why Thinking like a Computer Builds Skills for Success.” Teach Your Kids Code, 6 Dec. 2022, https://teachyourkidscode.com/what-is-computational-thinking/#:~:text=There%20are%20four%20key%20skills%20in%20computational%20thinking.,use%20computational%20thinking%20every%20day! 
+
+
+
+## All code on the Raspberry Pi
+
+```.py
+import Adafruit_DHT
+import time
+import numpy as np
+import requests
+from datetime import datetime
+
+new_user = {"username":"Kai+Zaven", 'password':'r2d2zaven+kai'}
+req = requests.post('http://192.168.6.142/login', json=new_user)
+access_token = req.json()["access_token"]
+auth = {"Authorization": f"Bearer {access_token}"}
+
+DHT_SENSOR = Adafruit_DHT.DHT11
+pins =[4, 17, 18, 23]
+i = 0
+data = []
+sensor_idhum = [337,338,339,340]
+sensor_idtemp = [333,334,335,336]
+for pin in pins:
+    humidity = None
+    temperature = None
+    while humidity is None or temperature is None:
+        humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, pin)
+    data.append(humidity)
+    data.append(temperature)
+    for id in sensor_idtemp:
+        new_record = {"datetime": datetime.isoformat(datetime.now()), "sensor_id":id, "value":temperature}
+        r = requests.post('http://192.168.6.142/reading/new', json=new_record, headers=auth)
+    for id2 in sensor_idhum:
+        new_record2 = {"datetime": datetime.isoformat(datetime.now()), "sensor_id":id2, "value": humidity}
+        r2 = requests.post('http://192.168.6.142/reading/new', json=new_record2, headers=auth)
+
+
+
+datastr = ""
+for i in data:
+    datastr += str(i) + ","
+
+print(datastr)
+
+data_time = datastr + (time.strftime("%Y-%m-%d %H:%M:%S"))
+
+with open('/home/dev/humidity_data.csv', 'a') as f:
+    f.write(data_time+"\n")
+
+
+
+print(r.json())
+
+print("Done")
+
+```
+
+
+## All code in pycharm
+
+```.py
+from math import ceil
+
+import requests
+from scipy.optimize import curve_fit
+import numpy as np
+import matplotlib.pyplot as plt
+with open("hum2.csv", "r") as file:
+    humidity = file.readlines()
+from project2_library import download, get_sensor, smoothing
+from matplotlib.gridspec import GridSpec
+
+readings = download()
+sensors = [4,5]
+
+sensor_data = []
+sensor_data_unsmoothed = []
+for s in sensors:
+    data = get_sensor(readings, s)
+    sensor_data_unsmoothed.append(data)
+    x, data_smth = smoothing(data[0:577])
+    sensor_data.append(data_smth)
+index = []
+for i in range(len(sensor_data[0])):
+    index.append(i+1)
+
+p = np.poly1d(np.polyfit(index, sensor_data[0], 3))
+p1 = np.poly1d(np.polyfit(index, sensor_data[1], 3))
+predicition_Hum = []
+prediction_temp = []
+for i in range(ceil(len(x)*1.2)):
+    predicition_Hum.append(i+1)
+    prediction_temp.append(i+1)
+
+#Remote humidity
+fig = plt.figure(figsize=(10,8))
+grid = GridSpec(6,4,figure=fig)
+#create the big plot
+box1 = fig.add_subplot(grid[0:2,0:2]) #row, collum
+plt.plot(x,sensor_data[0])
+plt.plot(predicition_Hum,p(predicition_Hum), color="green")
+plt.axhline(y=35, color="red")
+plt.axhline(y=65, color="red")
+plt.title("Smoothed humidity of sensor 4")
+plt.xlabel("Hours")
+plt.ylabel("Temp (Celsius)")
+
+box2 = fig.add_subplot(grid[0:2,2:5]) #row, collum
+plt.plot(x,sensor_data[1])
+plt.plot(prediction_temp,p(prediction_temp), color="green")
+plt.title("Smoothed temperatures of sensor 5")
+plt.axhline(y=17, color="red")
+plt.axhline(y=25, color="red")
+plt.xlabel("Hours")
+plt.ylabel("Temp (Celsius)")
+
+box3 = fig.add_subplot(grid[3:7, 0:2])
+plt.plot(sensor_data_unsmoothed[0])
+plt.axhline(y=35, color="red")
+plt.axhline(y=65, color="red")
+plt.title("Unsmoothed humditiy of sensor 4")
+plt.xlabel("Readings")
+plt.ylabel("Humidity")
+
+box4 = fig.add_subplot(grid[3:7, 2:5])
+plt.plot(sensor_data_unsmoothed[1])
+plt.axhline(y=17, color="red")
+plt.axhline(y=25, color="red")
+plt.xlabel("Readings")
+plt.ylabel("Temperature")
+plt.title("Unsmoothed temperature of sensor 5")
+
+plt.figure()
+
+
+#Local graphs & data
+hum1, hum2, hum3, hum4 = [], [], [], []
+hum_mean, hum_dev, hum_median, humsmooth1, hum_min, hum_max = [], [], [], [], [], []
+x = []
+
+temp1, temp2, temp3, temp4 = [], [], [], []
+
+tempmean, temp_dev, temp_median, tempsmooth1, temp_min, temp_max = [], [], [], [], [], []
+
+sensor_idhum = [337,338,339,340]
+sensor_idtemp = [333,334,335,336]
+
+for i in range(577):
+    x.append(i)
+
+for i in humidity:
+    values = i.split(',')
+    h1,t1,h2,t2,h3,t3,h4,t4,data = values
+    hum1.append(float(h1))
+    hum2.append(float(h2))
+    hum3.append(float(h3))
+    hum4.append(float(h4))
+    temp1.append(float(t1))
+    temp2.append(float(t2))
+    temp3.append(float(t3))
+    temp4.append(float(t4))
+meanx = []
+
+sensor_data = []
+
+#smooth means
+
+x2, hum1smooth = smoothing(hum1)
+x3, hum2smooth = smoothing(hum2)
+x4, hum3smooth = smoothing(hum3)
+x5, hum4smooth = smoothing(hum4)
+x6, temp1smooth = smoothing(temp1)
+x7, temp2smooth = smoothing(temp2)
+x8, temp3smooth = smoothing(temp3)
+x9, temp4smooth = smoothing(temp4)
+
+#Median,mean, standdev graph hum
+for i in range(len(hum1smooth)):
+    data = [hum1smooth[i], hum2smooth[i], hum3smooth[i], hum4smooth[i]]
+    data2 = np.mean(data[0:(len(data)-1)])
+    if data2 < 100:
+        hum_mean.append(data2)
+        meanx.append(i)
+    hum_dev.append(np.std(data))
+    hum_median.append(np.median(data))
+    hum_min.append(min(data))
+    hum_max.append(max(data))
+
+index1 = []
+for i in range(len(hum_mean)):
+    index1.append(i+1)
+pdev = np.poly1d(np.polyfit(index, hum_mean, 3))
+predicition_dev = []
+for i in range(ceil(len(meanx)*1.2)):
+    predicition_dev.append(i+1)
+
+plt.title("Stand dev humidity")
+plt.plot(x2,hum_mean, color ="black")
+plt.plot(predicition_dev,pdev(predicition_dev), color="red")
+plt.fill_between(x2, hum_min, hum_max, alpha=.3, color = "#bb0033")
+plt.errorbar(x2, hum_mean, hum_dev)
+plt.ylabel("Humidity")
+plt.xlabel("Hours")
+plt.figure()
+
+
+#Median,mean, standdev graph temp
+for i in range(len(temp1smooth)):
+    data = [temp1smooth[i], temp2smooth[i], temp3smooth[i], temp4smooth[i]]
+    data2 = np.mean(data[0:(len(data)-1)])
+    if data2 < 30:
+        tempmean.append(data2)
+        meanx.append(i)
+    temp_dev.append(np.std(data))
+    temp_median.append(np.median(data))
+    temp_min.append(min(data))
+    temp_max.append(max(data))
+
+index2 = []
+for i in range(len(tempmean)):
+    index2.append(i+1)
+
+pdev_temp = np.poly1d(np.polyfit(index2, tempmean, 3))
+predicition_temp_dev = []
+for i in range(ceil(len(index2)*1.2)):
+    predicition_temp_dev.append(i+1)
+
+plt.title("Stand dev temp")
+plt.plot(x6,tempmean, color ="black")
+plt.plot(predicition_temp_dev,pdev_temp(predicition_temp_dev), color="red")
+plt.fill_between(x6, temp_min, temp_max, alpha=.3, color = "#bb0033")
+plt.errorbar(x6, tempmean, temp_dev)
+plt.ylabel("Temperature")
+plt.xlabel("Hours")
+plt.figure()
+
+plt.title("Median of temperature")
+plt.plot(temp_median)
+plt.xlabel("Readings")
+plt.ylabel("Temperature")
+plt.figure()
+
+
+plt.title("Median of humidity")
+plt.plot(temp_median)
+plt.xlabel("Readings")
+plt.ylabel("Humidity")
+plt.figure()
+
+#Prediction Mean Hum
+
+index3 = []
+for i in range(len(hum_mean)):
+    index3.append(i+1)
+p_hum = np.poly1d(np.polyfit(index3, hum_mean, 3))
+
+predicition_Hum_mean = []
+for i in range(ceil(len(index3)*1.2)):
+    predicition_Hum_mean.append(i+1)
+
+fig = plt.figure(figsize=(12,10))
+grid = GridSpec(4,4,figure=fig)
+#create the big plot
+box1 = fig.add_subplot(grid[0:4,0:3]) #row, collum
+plt.plot(x2,hum_mean)
+plt.plot(predicition_Hum_mean,p_hum(predicition_Hum_mean), color="red")
+plt.title(f"Mean humidity of our sensors")
+plt.xlabel("Hours")
+plt.ylabel("Humidity")
+plt.axhline(y=35, color="red")
+plt.axhline(y=65, color="red")
+my_colors = ["#7fffcc", "#34ff45", "#44ffff", "#ff3344"]
+data = [hum1, hum2, hum3, hum4]
+for i in range(len(data)):
+    box2 = fig.add_subplot(grid[i, 3])
+    plt.plot(x, data[i], color=my_colors[i])
+    plt.title(f"Sensor #{sensor_idhum[i]}")
+    plt.ylabel("Humidity")
+    plt.xlabel("Readings")
+plt.figure()
+
+
+
+
+
+#Prediction_temp_mean
+index4 = []
+for i in range(len(tempmean)):
+    index4.append(i+1)
+
+p_temp = np.poly1d(np.polyfit(index4, tempmean, 3))
+predicition_temp_mean = []
+for i in range(ceil(len(index4)*1.2)):
+    predicition_temp_mean.append(i+1)
+
+fig = plt.figure(figsize=(12,10))
+grid = GridSpec(4,4,figure=fig)
+#create the big plot
+box1 = fig.add_subplot(grid[0:4,0:3]) #row, collum
+plt.plot(x2,tempmean)
+plt.plot(predicition_temp_mean,p_temp(predicition_temp_mean), color="red")
+plt.title(f"Mean temperature of our sensors")
+plt.xlabel("Hours")
+plt.axhline(y=17, color="red")
+plt.axhline(y=25, color="red")
+plt.ylabel("Temperature")
+data2 = [temp1smooth, temp2smooth, temp3smooth, temp4smooth]
+for i in range(len(data2)):
+    box2 = fig.add_subplot(grid[i, 3])
+    plt.plot(x2, data2[i], color=my_colors[i])
+    plt.title(f"Sensor #{sensor_idtemp[i]}")
+    plt.ylabel("Temperature")
+    plt.xlabel("Readings")
+plt.figure()
+
+
+fig = plt.figure(figsize=(12,10))
+grid = GridSpec(4,4,figure=fig)
+#create the big plot
+box1 = fig.add_subplot(grid[0:2,0:2])
+for i in range(len(temp1)):
+    data = [temp1[i], temp2[i], temp3[i], temp4[i]]
+    data2 = np.mean(data[0:(len(data)-1)])
+    if data2 < 30:
+        tempmean.append(data2)
+plt.title("Unsmoothed temp mean")
+plt.ylabel("Temperature")
+plt.xlabel("Readings")
+plt.plot(tempmean)
+
+box2 = fig.add_subplot(grid[0:2, 2:4])
+for i in range(len(hum1)):
+    data = [hum1[i], hum2[i], hum3[i], hum4[i]]
+    data2 = np.mean(data[0:(len(data)-1)])
+    if data2 < 100:
+        hum_mean.append(data2)
+plt.plot(hum_mean)
+plt.title("Unsmoothed hum mean")
+plt.ylabel("Humidity")
+plt.xlabel("Readings")
+plt.figure()
+
+
+
+plt.show()
+
+```
