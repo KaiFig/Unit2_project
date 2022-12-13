@@ -67,15 +67,14 @@ Considering the budgetary constrains of the client and the hardware requirements
 |21     | Make test plan    | We have a test plan on github so that we are able to show what we have done | 45 min | Dec 12 | B |
 |22     | Record the video   | We can show our customer our final product and explain it well  | 20 min     | Dec 13 | D |
 ## Test Plan
-| Test type     | Test types | Input                                                         | Expected output
-|-------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------
-|Record the data from 4 sensor and upload it to the csv file |Data from the 4 DHT11 sensors connnected to the raspberry pi | The data from the DHT11 sensor is uploaded onto the CSV file 
-|Run the code with crontab set to run every minute| Data from the DHT11 sensors  | The code runs every minute and it is uploaded to the CSV file 
-|Run the code with crontab set to run every 5 minutes for the next 48 hours     | Data from the DHT11 sensors | The data from the DHT11 sensors is uploaded into the CSV file for a total of 48 hours and we end up with around 570 pieces of data from our sensors
-|Post a set of readings (without crontab, just to check the posting)    | Data from the DHT11 sensor    | One set of data from the DHT11 sensor is posted to the remote server
-|Post a set of readings using crontab  | Data from the DHT11 sensor    | The data is posted for a total of 48 hours to the remote server   |
-|Graph each sensors readings, both humidity and temperature     | Data readings from the CSV file       | We are able to see 8 graphs (4 humidity and 4 temperature) of the data that we have in the CSV file   |
-|Create the mean, standard deviation, median, maximum and minimums for the sensors and graph it  | Data readings from the CSV file and sensor 4 and 5 (Dr. Ruben's outdoor sensors)  | We are able to clearly see these values on each graph | 
+| Software Test Type | Description | Input | Planned Output  |
+|------|-------------|----------|---------|
+|Functional test| Record the data from 4 sensor and upload it to the csv file |Data from the 4 DHT11 sensors connnected to the raspberry pi | The data from the DHT11 sensor is uploaded onto the CSV file 
+|Functional test | Run the code with crontab set to run every minute| Data from the DHT11 sensors  | The code runs every minute and it is uploaded to the CSV file |
+|Functional test| Run the code with crontab set to run every 5 minutes for the next 48 hours     | Data from the DHT11 sensors | The data from the DHT11 sensors is uploaded into the CSV file for a total of 48 hours and we end up with around 570 pieces of data from our sensors
+|Non-functional test  | Run the code and see how long it takes for the graphs to load   | Data from the CSV file and the remote server | The graphs are uploaded within 10 seconds of running the code 
+|Non-functional test  | Create the poster for the customer  | The graphs and models from our code   | The graphs are displayed in the poster in a way that is easy for the user to read |
+|Non-functional test  | Make sure that the graphs are easy to read for the customer | Data readings from the CSV file and sensor 4 and 5 (Dr. Ruben's outdoor sensors)  | We are able to clearly see these values on each graph | 
 
 ## How is data stored 
 
