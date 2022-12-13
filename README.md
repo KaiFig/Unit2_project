@@ -1,4 +1,14 @@
 ![Weather_GIF](https://github.com/KaiFig/Unit2_project/blob/main/cold-weather.gif)
+# Table of Content
+1. [Criteria A](#criteria-a-planning)
+
+2. [Criteria B](#criteria-b-design)
+
+3. [Criteria C](#criteria-c-development)
+
+4. [Criteria D](#criteria-d-functionality)
+
+5. [Citation](#citations)
 
 **Fig.1** GIF of Olaf in the winter 
 
@@ -311,6 +321,7 @@ The link above is to our google drive with the video and presentation.
 
 
 # Citations: 
+
 1.“Cold Homes and Health.” Cold Homes and Health | Centre for Sustainable Energy, https://www.cse.org.uk/advice/advice-and-support/heat-and-health. Cousins, Jonathan. “The Effects of Low Humidity on Your Health and Comfort.” SensorPush, SensorPush, 5 Nov. 2020, https://www.sensorpush.com/articles/the-effects-of-low-humidity-on-your-health-and-comfort. 
 
 2. Murray, Mike. “Using the DHT11 Temperature Sensor with the Raspberry Pi.” The Geek Pub, 15 Dec. 2019, https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/. 
