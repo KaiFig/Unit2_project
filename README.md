@@ -144,9 +144,14 @@ print("Done")
 
 ## Development
 
+### Crontab 
+
+
 ![Crontab](https://github.com/KaiFig/Unit2_project/blob/main/Crontab_ex.jpg)
 
 **Figx** Attached below is a picture of the crontab commmand we used to run the code for 48 hours. We used crontab since it enabled us to run it every 5 minutes without the fear of the code shutting down. We put the command in the terminal of the raspberry pi and it runs our posting code in the set times. We got the first part of the code from a website called crontab.guru and we got help for the command from Dr. Ruben. 
+
+### Create the sensors
 
 ```.py
 import requests
@@ -191,6 +196,10 @@ print(r8.json())
 
 With the above code, we used the information that we learned in class about API endings. With this knowledge, we made a dictionary with our username and password and we used this to get our access token. This is important as without it, we would not have been able to create the new sensor addresses in the remote server. 
 
+
+### Library
+
+
 ```.py
 import requests
 
@@ -221,6 +230,8 @@ def smoothing(data:list,size_window:int=12):
 **Figx** Library with 3 different functions
 
 To better organize our code, we decided to create a library with 3 important functions in it. We used the computational thinking skill of patern recognition to figure out that these were pieces of code that were repeated quite frequently in our data. With this imformation, we used the computational thinking skill of algorithim designing to create these 3 functions. Within these functions, we also used for loops, since we recognized the patterns and we realized that we could simplify the code. We also used the information we learned about getting data from a remote server to complete these functions. Therefore, we partially fulfilled success criteria 4 as we needed to create the sensor id's before posting the data to the remote server. 
+
+### Posting 
 
 ```.py
 data = []
